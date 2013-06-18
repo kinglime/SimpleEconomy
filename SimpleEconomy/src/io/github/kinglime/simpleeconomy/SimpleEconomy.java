@@ -9,11 +9,14 @@ import java.util.Map;
 import java.util.Scanner;
 
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class SimpleEconomy extends JavaPlugin {
+public class SimpleEconomy extends JavaPlugin implements Listener {
 	
-	HashMap <String, Double> accounts = new HashMap <String, Double>();
+	public HashMap <String, Double> accounts;
 	
 	
 	public HashMap<String, Double> readMap() throws IOException {
@@ -36,9 +39,19 @@ public class SimpleEconomy extends JavaPlugin {
 	}
 	
 	public void onEnable() {
+		getServer().getPluginManager().registerEvents(this, this);
 		File config = new File(this.getDataFolder(), "config.yml");
 		if (!config.exists()) {
 		    this.saveDefaultConfig();
+		}
+		File data = new File(this.getDataFolder(), "accounts.dat");
+		if (!data.exists()) {
+			try {
+				data.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		try {
 			accounts = readMap();
@@ -59,6 +72,19 @@ public class SimpleEconomy extends JavaPlugin {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+	
+	@EventHandler
+	public void onPlayerJoin(PlayerJoinEvent event) {
+		getLogger().info("Player joined the game");
+		Player player = event.getPlayer();
+		getLogger().info(player.getName());
+		if (!accounts.containsKey(player.getName())) {
+			getLogger().info("adding name to list");
+			accounts.put(player.getName(), getConfig().getDouble("SimpleEconomy.StartAmount"));
+		} else {
+			getLogger().info("not adding name to list");
 		}
 	}
 }
