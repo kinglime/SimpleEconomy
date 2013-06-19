@@ -1,5 +1,3 @@
-Currently in **beta**
-
 SimpleEconomy
 ======
 
