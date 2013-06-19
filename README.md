@@ -3,7 +3,7 @@ SimpleEconomy
 
 A simple and lightweight economy plugin. I designed this plugin for use on my server because I wanted a plugin I could drag and drop without hours of configuration.
 
-* [Download Latest Stable Build]()
+* [Bukkit Dev](http://dev.bukkit.org/bukkit-plugins/simpleeconomy/)
 
 Features
 ------------
