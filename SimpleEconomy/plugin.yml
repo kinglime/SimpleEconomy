@@ -1,6 +1,6 @@
 name: SimpleEconomy
 main: io.github.kinglime.simpleeconomy.SimpleEconomy
-version: 20130619a
+version: 20130619b
 commands:
   money:
     description: Displays the amount of money you have.
