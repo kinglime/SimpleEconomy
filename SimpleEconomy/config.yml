@@ -1,2 +1,3 @@
 SimpleEconomy:
   StartAmount: 100.0
+  CurrencyChar: $
