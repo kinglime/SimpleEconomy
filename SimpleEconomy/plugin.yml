@@ -2,15 +2,15 @@ name: SimpleEconomy
 main: io.github.kinglime.simpleeconomy.SimpleEconomy
 version: 20130619b
 commands:
-  money:
-    description: Displays the amount of money you have.
-    usage: /money
-    permission: simpleeconomy.money
-    permission-message: You don't have the money permission.
-    aliases: m
-  pay:
-    description: Send money to another player.
-    usage: /pay [player] [amount]
-    permission: simpleeconomy.pay
-    permission-message: You don't have the pay permission.
-    aliases: p
+    money:
+        description: Displays the amount of money you have.
+        usage: /money
+        permission: simpleeconomy.money
+        permission-message: You don't have the money permission.
+        aliases: m
+    pay:
+        description: Send money to another player.
+        usage: /pay [player] [amount]
+        permission: simpleeconomy.pay
+        permission-message: You don't have the pay permission.
+        aliases: p
